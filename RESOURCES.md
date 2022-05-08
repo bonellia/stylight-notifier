@@ -9,3 +9,4 @@ This file contains various resources that were useful during the implementation 
 - [Basic module usage - psycopg 3.1.dev0 documentation](https://www.psycopg.org/psycopg3/docs/basic/usage.html)
 - [SQL Joins](https://www.w3schools.com/sql/sql_join.asp)
 - [Installation - psycopg 3.1.dev0 documentation](https://www.psycopg.org/psycopg3/docs/basic/install.html#pure-python-installation)
+- [SQL - Using Views](https://www.tutorialspoint.com/sql/sql-using-views.htm)
