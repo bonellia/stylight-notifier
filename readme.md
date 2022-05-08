@@ -24,7 +24,7 @@
 5. Install the dependencies
 
    ```bash
-   pip install *r requirements.txt 
+   pip install -r requirements.txt 
    ```
 
 6. Run the script
@@ -32,6 +32,12 @@
    ```bash
    python main.py
    ```
+
+Alternatively you can use Makefile commands to save some time (after creating `.env` file!):
+
+- `make` - Create the virtual environment and install the requirements.
+- `make run` - Run the naive solution.
+- `make run2` - Run the view based solution.
 
 ## Solutions
 
