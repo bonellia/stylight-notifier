@@ -86,15 +86,11 @@ def set_shop_offline(shop_id):
                     SET a_online = %s
                     WHERE a_id = %s"""
     conn = None
-    updated_rows = 0
     try:
         print(f'Unlisting shop with the ID {shop_id}.')
         conn = get_db_connection()
-        # create a new cursor
         cur = conn.cursor()
-        # execute the UPDATE  statement
         cur.execute(update_query, (False, shop_id))
-        updated_rows = cur.rowcount
         conn.commit()
         cur.close()
     except (Exception, psycopg.DatabaseError) as error:
@@ -102,7 +98,6 @@ def set_shop_offline(shop_id):
     finally:
         if conn is not None:
             conn.close()
-    return updated_rows
 
 
 def handle_full_budget(shop_id, shops):
