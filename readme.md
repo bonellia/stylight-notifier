@@ -2,7 +2,7 @@
 
 ## Test Instructions
 
-1. The modified DDL can be seen in `db_psql.sql` which is tested on PostgreSQL 11.15. Make sure to recover DB state from this file.
+1. The modified DDL can be seen in `db_psql.sql` which is tested on PostgreSQL 11.15. Make sure to recover DB state from this file. You may also need to install `libpq5` depending on your PostgreSQL setup. Please refer to resources for a relevant link.
 2. An dotenv file with the name `.env` should be provided with `DATABASE_URL` entry. Example:
 
     ```env
@@ -62,7 +62,7 @@ Utilizes record fetching one-by-one. Without fetching all records, starts a tran
 
 - Due to limited time of the assignment, I have implemented the first two solutions. Please use `main2.py` to use view based approach. This assignment could be completed using countless different combinations. Whether we push the responsibility to database layer or the back-end highly depends on trade-offs we would consider. To briefly elaborate on these considerations, we can mention the following:
   
-  - Concurrency (running same operation script on different intervals with the possibility of atomicity concerns being relevant)
+  - Concurrency (running same operation script on different intervals with the possibility of atomicity concerns being relevant, see [ACID](https://www.geeksforgeeks.org/acid-properties-in-dbms/) for more information.)
   - Readability (having sophisticated SQL queries on the source code might not be preferred, especially without using an ORM library)
   - Memory management (as mentioned above, fetching all records into the memory may be problematic beyond certain thresholds, thus third solution might be mandatory where every action is processed and committed one-by-one with long transactions).
 
