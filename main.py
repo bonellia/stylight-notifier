@@ -11,6 +11,11 @@ DATABASE_URL = os.getenv("DATABASE_URL")
 
 
 def get_db_connection():
+    """
+    Using the environment variables, connects to the Stylight database.
+
+    :return: The connection instance to be used.
+    """
     try:
         conn = psycopg.connect(DATABASE_URL)
         return conn
@@ -58,6 +63,12 @@ def find_shop(shop_id, shops):
 
 
 def handle_half_budget(shop_id, shops):
+    """
+    Given a shop ID, notifies the said shop that exceeds the half budget.
+
+    :param shop_id: ID of the subhect shop.
+    :param shops: Shop list to filter correct shop, so the name can be used in the "email".
+    """
     shop_to_notify = find_shop(shop_id, shops)
     shop_name = shop_to_notify[1]
     is_shop_listed = shop_to_notify[2]
@@ -111,6 +122,10 @@ def handle_full_budget(shop_id, shops):
 
 
 def process_records(records):
+    """
+    Using the records provided, triggers necessary actions.
+    :param records: List of shop records to process.
+    """
     # Since we are only interested in current month, lets get it first:
     current_rotation_date = datetime.today().date().replace(day=1)
     # print(current_rotation_date)
